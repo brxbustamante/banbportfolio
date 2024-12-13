@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Portfolio Website Design</title>
+    <link rel="stylesheet" href="style.css">
+    <!----Font awesome cdn  font icon css -->
+    <link rel="stylesheet" href="footer.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+     <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+        
+                </div>
+                <nav>
+                    <div class="togglebtn">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+<!-- Right Sidebar Navigation -->
+<div class="right-nav">
+  <ul>
+      <li><a href="#home" class="icon-link"><i class="fa-solid fa-home"></i></a></li>
+      <li><a href="#about-me" class="icon-link"><i class="fa-solid fa-briefcase"></i></a></li>
+      <li><a href="#portfolio" class="icon-link"><i class="fa-solid fa-folder"></i></a></li>
+      <li><a href="#contact" class="icon-link"><i class="fa-solid fa-envelope"></i></a></li>
+  </ul>
+</div>
+                </nav>
+            </header>
+            <div class="container">
+                 <div class="imageprofile">
+                    <img src="test.png" alt="profile pic">
+                 </div>
+                 <div class="hero-text">
+                  <h1>Sup, I'm Brix Bustamante</h1> <!-- Main header introducing yourself -->
+                  <h2>a Back-End Developer at your service</h2> <!-- Role and key qualities -->
+
+                    <div class="btn-group">
+                       <a href="#contact" class="btn">Contact</a>
+                    </div>
+
+                    <div class="social">
+                        <a href="#"><i class="fa-brands fa-facebook"></i></a>
+<a href="#"><i class="fa-brands fa-github"></i></a>
+<a href="#"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                 </div>
+            </div>
+        </div>
+     </div>
+     <div class="about-me" id="about-me">
+      <div class="wrapper">
+          <h2>About Me</h2>
+          <p>Hi, I'm Brix Bustamante, a passionate back-end developer specializing in server-side technologies, database management, and creating the backbone for complex web applications. I have experience working with technologies like Node.js, Express, MySQL, Firebase, and RESTful APIs. My goal is to write clean, efficient, and scalable code while ensuring the seamless functionality of the system. Here's a little more about my journey:</p>
+  
+          <div class="about-details">
+              <div class="about-item">
+                  <h3>Skills</h3>
+                  <ul>
+                      <li>HTML</li>
+                      <li>CSS</li>
+                      <li>JavaScript</li>
+                      <li>PHP</li>
+                  </ul>
+              </div>
+              <div class="about-item">
+                  <h3>Why Choose me ?</h3>
+                  <p>I bring a unique blend of technical expertise and creative problem-solving skills, enabling me to design and develop robust backend solutions that power seamless user experiences.</p>
+              </div>
+          </div>
+  
+          <!-- Resume Download Button in the middle -->
+          <div class="btn-group centered">
+              <a href="resume.pdf" class="btn active" download>Download Resume</a>
+          </div>
+      </div>
+  </div>
+<!-- Portfolio Section -->
+<div class="portfolio" id="portfolio">
+  <div class="wrapper">
+      <h2>Featured Projects</h2>
+      <p>Here are some of the projects I've worked on. These showcase my skills in back-end development, problem-solving, and creating robust systems.</p>
+
+      <div class="projects">
+        <!-- Project 1 -->
+        <div class="project-item">
+            <img src="salonlogo.png" alt="Project 1" class="project-img">
+            <div class="project-info">
+                <h3>Moderntech Salon BarberShop</h3>
+                <p>This is a website we developed for a salon business, featuring a booking system, price list, and other essential tools for managing appointments and services. Created using HTML, CSS, and PHP, it offers a smooth, user-friendly experience.</p>
+            <p><strong>Technologies Used:</strong> HTML, CSS, PHP</p>
+
+                <button class="btn view-project" data-project="1">View Project</button>
+            </div>
+        </div>
+        
+        <!-- Project 2 -->
+        <div class="project-item">
+            <img src="minewisdomlogo.png" alt="Project 2" class="project-img">
+            <div class="project-info">
+                <h3>MineWisdom</h3>
+                <p>MineWisdom is an app we developed for Minecraft enthusiasts. It serves as a guide to the game, offering information on materials, mobs, and other essential gameplay features. The app is built with Java to provide robust functionality and seamless interaction.</p>
+                <p><strong>Technologies Used:</strong> Java</p>
+                <button class="btn view-project" data-project="2">View Project</button>
+            </div>
+        </div>
+        
+        <!-- Project 3 -->
+        <div class="project-item">
+            <img src="rkyvelogo.png" alt="Project 3" class="project-img">
+            <div class="project-info">
+                <h3>RKYVE</h3>
+                <p>RKYVE is a website we developed for a booking system that allows users to easily schedule appointments. The platform also includes an admin panel where administrators can manage bookings and update images. Built with HTML, CSS, and PHP, it offers full-stack web development features.</p>
+                <p><strong>Technologies Used:</strong> HTML, CSS, PHP</p>
+                <button class="btn view-project" data-project="3">View Project</button>
+            </div>
+        </div>
+    </div>
+
+<!-- Modal Structure for Project Details -->
+<div id="projectModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Project Title</h2>
+    <img id="modalImage" src="" alt="Project Image" class="modal-img">
+    <p id="modalDescription"></p>
+  </div>
+</div>
+<script>
+  // Modal functionality
+  const modal = document.getElementById("projectModal");
+  const closeBtn = document.getElementsByClassName("close")[0];
+  
+  const viewProjectBtns = document.querySelectorAll(".view-project");
+  
+  const projectData = {
+    1: {
+    title: "Moderntech Salon BarberShop",
+    description: "We created this website using HTML, CSS, and PHP. It showcases a modern, responsive design with user-friendly features for a salon business.",
+    imgSrc: "salon.png"
+},
+2: {
+    title: "MineWisdom",
+    description: "This dynamic web application is built with Java, allowing users to interact with databases through a robust API. It provides a seamless experience for users seeking mining-related insights.",
+    imgSrc: "minewisdom.jpg"
+},
+3: {
+    title: "RKYVE",
+    description: "This project integrates a Node.js back-end with a React front-end, using HTML, CSS, and PHP for full-stack web development. It delivers a complete solution for modern web applications.",
+    imgSrc: "rkyve.png"
+}
+  };
+  
+  // When the user clicks a "View Project" button
+  viewProjectBtns.forEach((btn) => {
+      btn.addEventListener("click", () => {
+          const projectId = btn.getAttribute("data-project");
+          const project = projectData[projectId];
+          
+          // Set modal content
+          document.getElementById("modalImage").src = project.imgSrc;
+          document.getElementById("modalDescription").textContent = project.description;
+          modal.querySelector("h2").textContent = project.title;
+  
+          // Open the modal
+          modal.style.display = "block";
+      });
+  });
+  
+  // When the user clicks on <span> (x), close the modal
+  closeBtn.onclick = () => {
+      modal.style.display = "none";
+  }
+  
+  // When the user clicks anywhere outside the modal, close it
+  window.onclick = (event) => {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
+  <!-- Contact Section -->
+<div class="contact" id="contact">
+    <div class="wrapper">
+      <h2>Contact Me</h2>
+      <p>If you have any questions, feel free to reach out! I'd love to connect with you.</p>
+  
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form action="mailto:youremail@example.com" method="POST" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+          </div>
+  
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required placeholder="Your Email">
+          </div>
+  
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Your Message"></textarea>
+          </div>
+  
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+      <footer class="footer">
+        <p>© 2024 Brix Bustamante</p>
+    </footer>
+</html>
+</body>
